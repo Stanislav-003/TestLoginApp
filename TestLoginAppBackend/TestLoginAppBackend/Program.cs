@@ -13,6 +13,8 @@ builder.Services.AddSwaggerGen(options => options.CustomSchemaIds(t => t.FullNam
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddEndpoints();
 
+builder.Services.AddAntiforgery(options => options.SuppressXFrameOptionsHeader = true);
+
 var app = builder.Build();
 
 app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
