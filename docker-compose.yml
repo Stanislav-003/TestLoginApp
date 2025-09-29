@@ -1,0 +1,24 @@
+services:
+  backend:
+    build:
+      context: ./TestLoginAppBackend/TestLoginAppBackend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./TestLoginAppFrontend/TestLoginAppFrontend
+      dockerfile: Dockerfile
+    ports:
+      - "5001:8080"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+networks:
+  app-network:
+    driver: bridge

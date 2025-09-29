@@ -1,0 +1,43 @@
+﻿@model TestLoginAppFrontend.Models.LoginViewModel
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-4">
+        <div class="card shadow-lg border-0 rounded-3">
+            <div class="card-body p-4">
+                <h3 class="card-title text-center mb-4">Sign In</h3>
+
+                <form asp-action="Login" method="post">
+                    @if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
+                    {
+                        <div asp-validation-summary="All" class="alert alert-danger" role="alert"></div>
+                    }
+
+                    <div class="mb-3">
+                        <label asp-for="Username" class="form-label"></label>
+                        <input asp-for="Username" class="form-control" placeholder="Enter your username" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="IPs" class="form-label"></label>
+                        <input asp-for="IPs" class="form-control" placeholder="Your IP will be auto-detected" />
+                        <span asp-validation-for="IPs" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger mt-3 text-center">@Model.ErrorMessage</div>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

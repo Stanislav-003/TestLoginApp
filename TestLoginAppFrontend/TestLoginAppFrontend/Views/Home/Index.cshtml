@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (Model != null)
+{
+    <h2>Welcome, @Model.FirstName @Model.LastName!</h2>
+    <ul>
+        <li>Email: @Model.Email</li>
+        <li>Phone: @Model.Phone</li>
+        <li>City: @Model.City</li>
+        <li>Country: @Model.Country</li>
+        <li>Status: @Model.Status</li>
+    </ul>
+}
+else
+{
+    <h2>Welcome, Guest</h2>
+}
