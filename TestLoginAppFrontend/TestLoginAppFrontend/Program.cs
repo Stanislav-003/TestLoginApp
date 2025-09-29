@@ -4,7 +4,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient("ApiClient", client =>
 {
-    client.BaseAddress = new Uri("http://backend:8080/");
+    client.BaseAddress = new Uri("https://testloginapp.onrender.com/");
 });
 
 var app = builder.Build();
